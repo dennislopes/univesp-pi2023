@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Editando "{{ expense['client'] }}" {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="client">Cliente</label>
+        <input type="text" name="client" placeholder="Nome do Cliente"
+               class="form-control"
+               value="{{ request.form['client'] or expense['client'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="category">Categoria</label>
+        <input type="text" name="category" placeholder="category"
+               class="form-control"
+               value="{{ request.form['category'] or expense['category'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="value">Valor</label>
+        <input type="number" name="value" placeholder="Valor"
+               class="form-control"
+               value="{{ request.form['value'] or expense['value'] }}">
+        </input>
+    </div>
+
+    <div class="form-group">
+        <label for="execution_date">Data de Execução</label>
+        <input type="date" name="execution_date" placeholder="Data de Execução"
+               class="form-control"
+               value="{{ request.form['execution_date'] or expense['execution_date'] }}">
+        </input>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<hr>
+
+<form action="{{ url_for('deleteExpense', id=expense['id']) }}" method="POST">
+    <input type="submit" value="Remove Despesa"
+            class="btn btn-danger btn-sm"
+            onclick="return confirm('Você tem certeza que quer remover essa despesa?')">
+</form>
+
+{% endblock %}

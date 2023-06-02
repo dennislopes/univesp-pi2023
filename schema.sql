@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS fretes;
+DROP TABLE IF EXISTS despesas;
+
+CREATE TABLE fretes (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    client TEXT NOT NULL,
+    destination TEXT NOT NULL,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    value FLOAT NOT NULL,
+    execution_date DATE NOT NULL
+);
+
+CREATE TABLE despesas (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    client TEXT NOT NULL,
+    category TEXT NOT NULL,
+    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    value FLOAT NOT NULL,
+    execution_date DATE NOT NULL
+);

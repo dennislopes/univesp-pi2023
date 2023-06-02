@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ expense['client'] }} {% endblock %}</h2>
+    <p>{{ expense['category'] }}</p>
+    <p>{{ expense['value'] }}</p>
+    <p>{{ expense['execution_date'] }}</p>
+    <span class="badge badge-primary">{{ expense['created'] }}</span>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table>
+        {% for frete in fretes %}
+
+        <tr>
+            <td width=20%>
+                <h4><label for="execution_date">Data de Execução: </label></h4></td>
+            <td width=75%><h4>{{ frete['execution_date'] }}</h4>
+            </td>
+        </tr>
+            <tr>
+                <td width=20%>
+                    <h4><label for="client">Cliente: </label></h4></td>
+                <td width=75%><a href="{{ url_for('frete', frete_id=frete['id']) }}"><h4>{{ frete['client'] }}</h4>
+
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td width=20%>
+                    <h4><label for="destination">Destino: </label></h4></td>
+                <td width=75%><h4>{{ frete['destination'] }}</h4>
+                </td>
+            </tr>
+
+            <tr>
+                <td width=20%>
+                    <h4><label for="value">Valor: </label></h4></td>
+                <td width=75%><h4>{{ frete['value'] }}</h4>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+
+
+                    <span class="badge badge-primary">{{ frete['created'] }}</span>
+                    <a href="{{ url_for('edit', id=frete['id']) }}">
+                        <span class="badge badge-warning">Editar</span>
+                    </a>
+                </td>
+            </tr>
+
+            {% endfor %}
+
+                </table>
+
+{% endblock %}

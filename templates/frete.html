@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ frete['client'] }} {% endblock %}</h2>
+    <p>{{ frete['destination'] }}</p>
+    <p>{{ frete['value'] }}</p>
+    <p>{{ frete['execution_date'] }}</p>
+    <span class="badge badge-primary">{{ frete['created'] }}</span>
+{% endblock %}

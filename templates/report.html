@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table border="2">
+        {% for expense in expenses %}
+        <tr>
+            <td width=24%><h5>{{ expense['execution_date'] }}</h5></td><td width=30%><h5>{{ expense['category'] }}</h5></td><td width=40%><h5>{{ expense['client'] }}</h5></td><td align=right><h5>{{ expense['value'] }}</h5></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    {% for soma in soma %}
+    <br>
+    <table>
+    <tr><td><h5>Valor total das despesas no mês: </h5></td><td width=40% align=right><h5>{{soma['SUM(value)']}}</h5></td></tr>
+    {% endfor %}
+
+</table>
+
+<br>
+<table border="2">
+    {% for frete in fretes %}
+    <tr>
+        <td width=24%><h5>{{ frete['execution_date'] }}</h5></td><td width=30%><h5>{{ frete['client'] }}</h5></td><td width=40%><h5>{{ frete['destination'] }}</h5></td><td align=right><h5>{{ frete['value'] }}</h5></td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% for total in somafrete %}
+<br>
+<table>
+<tr><td><h5>Valor total dos fretes no mês: </h5></td><td width=40% align=right><h5>{{total['SUM(value)']}}</h5></td></tr>
+{% endfor %}
+
+</table>
+{% endblock %}

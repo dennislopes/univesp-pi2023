@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table>
+        {% for expense in expenses %}
+
+        <tr>
+            <td width=20%>
+                <h4><label for="id">Identificador: </label></h4></td>
+            <td width=75%><a href="{{ url_for('expense', expense_id=expense['id']) }}"><h4>{{ expense['id'] }}</h4></a>
+            </td>
+        </tr>       
+
+
+        <tr>
+            <td width=20%>
+                <h4><label for="execution_date">Data de Execução: </label></h4></td>
+            <td width=75%><h4>{{ expense['execution_date'] }}</h4>
+            </td>
+        </tr>
+            <tr>
+                <td width=20%>
+                    <h4><label for="client">Cliente: </label></h4></td>
+                <td width=75%><h4>{{ expense['client'] }}</h4>
+                </td>
+            </tr>
+        </tr>
+        <tr>
+            <td width=20%>
+                <h4><label for="category">Categoria: </label></h4></td>
+            <td width=75%><h4>{{ expense['category'] }}</h4>
+
+                </a>
+            </td>
+        </tr>
+
+    </tr>
+    <tr>
+        <td width=20%>
+            <h4><label for="value">Valor: </label></h4></td>
+        <td width=75%><h4>{{ expense['value'] }}</h4>
+
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+
+            <span class="badge badge-primary">{{ expense['created'] }}</span>
+            <a href="{{ url_for('expenseEdit', id=expense['id']) }}">
+                <span class="badge badge-warning">Editar</span>
+            </a>
+        </td>
+    </tr>
+
+            {% endfor %}
+
+                </table>
+
+{% endblock %}
